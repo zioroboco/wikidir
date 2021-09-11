@@ -13,8 +13,9 @@ init() {
   echo "Cloning $wiki..."
   git clone "$wiki" ./docs
 
-  echo "# See [wiki](https://github.com/$repo/wiki) for docs..." >> docs/README.md
-  git add docs/README.md
+  echo "### [Docs are in the wiki.](https://github.com/$repo/wiki)" >> README.md.tmp
+  git add README.md.tmp
+  git mv README.md.tmp docs/README.md
 
   echo "/.gitignore" >> docs/.gitignore
   echo "/README.md" >> docs/.gitignore

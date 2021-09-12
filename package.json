@@ -1,14 +1,14 @@
 {
-  "name": "@zioroboco/wiki-as-docs-dir",
+  "name": "wikidir",
   "description": "Maintain your GitHub wiki alongside your code.",
   "version": "0.0.0-UNVERSIONED",
   "author": "Louis Quinnell <_@ziorobo.co>",
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/zioroboco/wiki-as-docs-dir.git"
+    "url": "ssh://git@github.com/zioroboco/wikidir.git"
   },
   "bin": {
-    "wiki-as-docs-dir": "./run.sh"
+    "wikidir": "./wikidir.sh"
   }
 }

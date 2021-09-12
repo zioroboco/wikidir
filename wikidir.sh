@@ -7,7 +7,7 @@ init() {
     exit 1
   fi
 
-  repo=$(node $(dirname $0)/../@zioroboco/wiki-as-docs-dir/get-repo)
+  repo=$(node $(dirname $0)/../wikidir/get-repo)
   wiki="https://github.com/$repo.wiki.git"
 
   echo "Cloning $wiki..."
@@ -52,6 +52,6 @@ if [ $1 = init ]; then
 elif [ $1 = update ]; then
   update
 else
-  echo "Usage: wiki-as-docs-dir <init|update>"
+  echo "Usage: wikidir <init|update>"
   exit 1
 fi

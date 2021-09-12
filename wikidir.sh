@@ -7,7 +7,7 @@ init() {
     exit 1
   fi
 
-  repo=$(node $(dirname $0)/../wikidir/get-repo)
+  repo=$(node "$(dirname "$0")"/../wikidir/get-repo)
   wiki="https://github.com/$repo.wiki.git"
 
   echo "Cloning $wiki..."
@@ -33,7 +33,7 @@ update() {
 
   cd docs
 
-  if [ ! -z $(git status --porcelain) ]; then
+  if [ -n "$(git status --porcelain)" ]; then
     echo "docs is dirty."
     exit 1
   fi
@@ -47,9 +47,9 @@ update() {
   fi
 }
 
-if [ $1 = init ]; then
+if [ "$1" = init ]; then
   init
-elif [ $1 = update ]; then
+elif [ "$1" = update ]; then
   update
 else
   echo "Usage: wikidir <init|update>"

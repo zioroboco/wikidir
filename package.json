@@ -1,9 +1,9 @@
 {
   "name": "wikidir",
   "description": "Maintain your GitHub wiki alongside your code.",
-  "version": "0.0.0-UNVERSIONED",
+  "version": "0.1.0",
   "author": "Louis Quinnell <_@ziorobo.co>",
-  "license": "UNLICENSED",
+  "license": "0BSD",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/zioroboco/wikidir.git"

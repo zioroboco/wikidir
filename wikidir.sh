@@ -13,11 +13,11 @@ init() {
   # e.g. origin
   remote_name=$(echo "$remote_ref" | cut -d'/' -f1)
 
-  # e.g. git@github.com:zioroboco/wikidir.git
+  # e.g. git@github.com:zioroboco/wikidir.git (or https://github.com/...)
   remote_url=$(git remote get-url "$remote_name")
 
   # e.g. zioroboco/wikidir
-  repo_slug=$(echo "$remote_url" | sed 's/\.git$//' | sed 's/.*github.com//' | sed 's/://')
+  repo_slug=$(echo "$remote_url" | sed 's/\.git$//' | sed 's/.*github.com//' | sed 's/^[:\/]//')
 
   # e.g. https://github.com/zioroboco/wikidir
   base_url="https://github.com/$repo_slug"

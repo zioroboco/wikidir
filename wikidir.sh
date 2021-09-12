@@ -40,33 +40,8 @@ init() {
   git add .gitignore
 }
 
-update() {
-  if [ ! -d docs ]; then
-    echo "docs doesn't exist."
-    exit 1
-  fi
-
-  cd docs
-
-  if [ -n "$(git status --porcelain)" ]; then
-    echo "docs is dirty."
-    exit 1
-  fi
-
-  git pull 1> /dev/null 2> /dev/null
-
-  if [ $? = 0 ]; then
-    echo "docs updated."
-  else
-    echo "docs failed to update."
-  fi
-}
-
 if [ "$1" = init ]; then
   init
-elif [ "$1" = update ]; then
-  update
 else
-  echo "Usage: wikidir <init|update>"
-  exit 1
+  git --git-dir=docs/.git --work-tree=docs "$@"
 fi

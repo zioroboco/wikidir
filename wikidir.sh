@@ -1,9 +1,12 @@
 #!/bin/sh
 set -e
 
+# Use the directory "wiki" by default...
+dir=wiki
+
 init() {
-  if [ -d docs ]; then
-    echo "docs already exists."
+  if [ -d "$1" ]; then
+    echo "repo $1 already exists."
     exit 1
   fi
 
@@ -26,22 +29,38 @@ init() {
   wiki_url="$base_url.wiki.git"
 
   echo "Cloning $wiki_url..."
-  git clone "$wiki_url" ./docs
+  git clone "$wiki_url" "$1"
 
   echo "### [Docs are in the wiki.]($base_url/wiki)" >> README.md.tmp
   git add README.md.tmp
-  git mv README.md.tmp docs/README.md
+  git mv README.md.tmp "$1/README.md"
 
-  echo "/.gitignore" >> docs/.gitignore
-  echo "/README.md" >> docs/.gitignore
-  git add -f docs/.gitignore
+  echo "/.gitignore" >> "$1/.gitignore"
+  echo "/README.md" >> "$1/.gitignore"
+  git add -f "$1/.gitignore"
 
-  echo "/docs/" >> .gitignore
+  echo "/$1/" >> .gitignore
   git add .gitignore
 }
 
-if [ "$1" = init ]; then
-  init
-else
-  git --git-dir=docs/.git --work-tree=docs "$@"
-fi
+while [ $# -gt 0 ]; do
+  case "$1" in
+  -h | --help)
+    echo "Usage: wikidir [-d directory] [init | ... (git args)]"
+    exit 0
+    ;;
+  -d | --dir)
+    dir=$2
+    shift
+    shift
+    ;;
+  init)
+    init "$dir"
+    exit 0
+    ;;
+  *)
+    git --git-dir="$dir/.git" --work-tree="$dir" "$@"
+    exit 0
+    ;;
+  esac
+done

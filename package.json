@@ -8,6 +8,9 @@
     "type": "git",
     "url": "ssh://git@github.com/zioroboco/wikidir.git"
   },
+  "os": [
+    "!win32"
+  ],
   "bin": {
     "wikidir": "./wikidir.sh"
   }

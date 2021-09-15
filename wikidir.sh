@@ -6,6 +6,9 @@ if [ ! -d .git ]; then
   exit 1
 fi
 
+# Use the directory "docs" by default
+dir="docs"
+
 # e.g. git@github.com:zioroboco/wikidir.git (or https://github.com/...)
 remote_url=$(git remote get-url "$(git remote)")
 

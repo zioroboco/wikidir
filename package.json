@@ -1,7 +1,7 @@
 {
   "name": "wikidir",
   "description": "Maintain your GitHub wiki alongside your code.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "Louis Quinnell <_@ziorobo.co>",
   "license": "0BSD",
   "repository": {

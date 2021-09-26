@@ -38,7 +38,7 @@ init() {
   echo "/README.md" >>"$dir/.gitignore"
   git add -f "$dir/.gitignore"
 
-  echo "/$dir/" >>.gitignore
+  echo "\n/$dir/" >>.gitignore
   git add .gitignore
 }
 

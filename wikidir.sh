@@ -70,7 +70,7 @@ while [ $# -gt 0 ]; do
     echo "Usage: wikidir [-d directory] [init | update | ... (git args)]"
     exit 0
     ;;
-  -d | --dir)
+  -d | --dir | --directory)
     dir=$2
     shift
     shift
